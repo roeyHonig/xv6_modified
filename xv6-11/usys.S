@@ -18,10 +18,20 @@
     int $T_SYSCALL; \
     ret
 
+// !!!! Adding "new" "SYSCALLfork(fork)" instead of SYSCALL(fork) 
+//  without changing syscall.h !!! 1 is SYSCALL number, look in syscall.c
+#define SYSCALLCPS(cps) \
+  .globl cps; \
+  cps: \
+    movl $22, %eax; \
+    int $T_SYSCALL; \
+    ret
+
 // You need to add your new SYSCALL by the same way(here is a good place)
 
 
 SYSCALLFORK(fork) //instead of SYSCALL(fork) !!!
+SYSCALLCPS(cps)
 //SYSCALL(fork)
 SYSCALL(exit)
 SYSCALL(wait)
@@ -43,4 +53,3 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
-SYSCALL(cps)
