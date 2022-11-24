@@ -78,9 +78,9 @@ sys_sleep(void)
 }
 
 int
-sys_cps(void)
+sys_cps140(void)
 {
-  return cps();
+  return cps140();
 }
 
 // return how many clock tick interrupts have occurred

@@ -23,7 +23,7 @@
 #define SYSCALLCPS(cps) \
   .globl cps; \
   cps: \
-    movl $22, %eax; \
+    movl $140, %eax; \
     int $T_SYSCALL; \
     ret
 
@@ -31,7 +31,7 @@
 
 
 SYSCALLFORK(fork) //instead of SYSCALL(fork) !!!
-SYSCALLCPS(cps)
+SYSCALLCPS(cps140)
 //SYSCALL(fork)
 SYSCALL(exit)
 SYSCALL(wait)
