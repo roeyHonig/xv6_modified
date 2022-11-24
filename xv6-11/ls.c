@@ -74,6 +74,7 @@ int
 main(int argc, char *argv[])
 {
   int i;
+  printf(1, "roey made changes!!!!!discard this!!!!!\n");
 
   if(argc < 2){
     ls(".");
