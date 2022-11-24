@@ -6,6 +6,7 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include <stdio.h>
 
 struct {
   struct spinlock lock;
@@ -494,6 +495,17 @@ kill(int pid)
   }
   release(&ptable.lock);
   return -1;
+}
+
+// current process status
+int
+cps()
+{
+
+    //printf("roey made changes again!!!!!discard this!!!!!\n");
+    cprintf("roey made changes again!!!!!discard this!!!!!\n");
+
+  return 0;
 }
 
 //PAGEBREAK: 36
