@@ -500,10 +500,21 @@ kill(int pid)
 int
 cps140()
 {
-
-    cprintf("roey made changes again!!!!!discard this please!!!!!\n");
-
-  return 0;
+  struct proc *p;
+  // Enable interrupts on this processor.
+  sti();
+  // Loop over process tab;e looking for process with pid.
+  acquire(&ptable.lock);
+  cprintf("name \t pid \t state \n");
+  for (p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+  {
+    if (p->state == SLEEPING)
+      cprintf("%s \t %d \t SLEEPING \n ", p->name, p->pid);
+    else if (p->state == RUNNING)
+      cprintf("%s \t %d \t RUNNING \n ", p->name, p->pid);
+  }
+  release(&ptable.lock);
+  return 140;
 }
 
 //PAGEBREAK: 36
