@@ -1,3 +1,4 @@
+// Student Name: Roey Honig. Student ID#: 060873940
 #include "syscall.h"
 #include "traps.h"
 
@@ -18,8 +19,8 @@
     int $T_SYSCALL; \
     ret
 
-// !!!! Adding "new" "SYSCALLfork(fork)" instead of SYSCALL(fork) 
-//  without changing syscall.h !!! 1 is SYSCALL number, look in syscall.c
+// !!!! Adding "new" "SYSCALLCPS(cps)" instead of SYSCALL(cps) 
+//  without changing syscall.h !!! 14 is SYSCALL number, look in syscall.c
 #define SYSCALLCPS(cps) \
   .globl cps; \
   cps: \
